@@ -11,6 +11,8 @@ public class Main {
                 switch (exercise){
                     case 1:
                         Exercise1();
+                    case 2:
+                        Exercise2();
                     default:
                         System.out.println();
                 }
@@ -21,6 +23,19 @@ public class Main {
             }
         }
     }
+    public static void Exercise2(){
+        System.out.println("Creating a array with 10 double elements.");
+        var arr = new double[10];
+        System.out.println("Setting values with a for loop as 1/1, 1/2, 1/3..");
+        for(int i = 0; i < arr.length; i++){
+            arr[i] = 1.0/(i + 1.0);
+        }
+        System.out.println("Printing values in array:");
+        for(double element : arr){
+            System.out.println(element);
+        }
+    }
+
     public static void Exercise1(){
         var arr1 = new double[4];
         var arr2 = new int[]{
