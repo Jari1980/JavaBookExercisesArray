@@ -13,6 +13,8 @@ public class Main {
                         Exercise1();
                     case 2:
                         Exercise2();
+                    case 3:
+                        Exercise3();
                     default:
                         System.out.println();
                 }
@@ -23,6 +25,21 @@ public class Main {
             }
         }
     }
+    public static void Exercise3(){
+        System.out.println("Creating array with 10 double elements.");
+        var arr = new double[10];
+        double counter = 1.0;
+        System.out.println("Setting value for the last element as 1/1, second last 1/2 and so on, last exercise in opposite order.");
+        for(int i = arr.length - 1; i >= 0; i--){
+            arr[i] = 1.0 / counter;
+            counter++;
+        }
+        System.out.println("Values in array:");
+        for(double element : arr){
+            System.out.println(element);
+        }
+    }
+
     public static void Exercise2(){
         System.out.println("Creating a array with 10 double elements.");
         var arr = new double[10];
