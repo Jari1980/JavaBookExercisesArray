@@ -17,6 +17,8 @@ public class Main {
                         Exercise3();
                     case 4:
                         Exercise4();
+                    case 5:
+                        Exercise5();
                     default:
                         System.out.println();
                 }
@@ -27,8 +29,41 @@ public class Main {
             }
         }
     }
+    public static void Exercise5(){
+        System.out.println("Creating 2 arrays, first one with 100 elements initialising this so the index reflects tha value," +
+                            "second with 20 elements non initialised");
+        var array1 = new int[100];
+        var array2 = new int[20];
+        for(int i = 0; i < array1.length; i++){
+            array1[i] = i;
+        }
+        //for(int elm : array1){
+          //  System.out.println(elm);
+        //}
+        System.out.println("Copying element 50-54 from first array to the place 10-14 in second array.");
+        int counter = 10;
+        for(int j = 50; j <= 54; j++){
+            array2[counter] = array1[j];
+            counter++;
+        }
+        System.out.println("Array2:");
+        int counter2 = 0;
+        for(int ele : array2){
+            System.out.println("index: " + counter2 + " value: " + ele);
+            counter2++;
+        }
+        System.out.println("Using arraycopy to copy elements 95-99 from first to element 5-9 in second.");
+        System.arraycopy(array1, 95, array2, 5, 5);
+        System.out.println("Array2:");
+        int counter3 = 0;
+        for(int ele : array2){
+            System.out.println("index: " + counter3 + " value: " + ele);
+            counter3++;
+        }
+    }
+
     public static void Exercise4(){
-        System.out.println("Write any number of items with price, the program will keep the most expensive item in memory, stop program by typing non digit in price.");
+        System.out.println("Write any number of items with price, the program will keep the most expensive item in memory, break loop by typing non digit in price.");
         double priceMax = 0;
         String nameMax = "";
         var scan = new Scanner(System.in);
