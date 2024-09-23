@@ -19,6 +19,8 @@ public class Main {
                         Exercise4();
                     case 5:
                         Exercise5();
+                    case 6:
+                        Exercise6();
                     default:
                         System.out.println();
                 }
@@ -29,6 +31,33 @@ public class Main {
             }
         }
     }
+    public static void Exercise6(){
+        System.out.println("Creating a array with 20 double elements with values according to index");
+        var arr1 = new double[20];
+        for(int i = 0; i < arr1.length; i++){
+            arr1[i] = i;
+        }
+        System.out.println("arr1:");
+        for(double ele : arr1){
+            System.out.println(ele);
+        }
+        System.out.println("Creating a method Fill which takes arguments (double[] arr, int ind1, int ind2, double value)" +
+                " in order to changes values within the two given indexes, starting with ind1 to ind2, to desired value.");
+        System.out.println("Calling method Fill with argument (arr1, 5, 9, 2.1)");
+        Fill(arr1, 5, 9, 2.1);
+        System.out.println("arr1 after running method:");
+        int counter = 0;
+        for(double ele : arr1){
+            System.out.println("Index " + counter + ": " + " value: " + ele);
+            counter++;
+        }
+    }
+    public static void Fill(double[] arr, int ind1, int ind2, double value){
+        for(int i = ind1; i < ind2; i++){
+            arr[i] = value;
+        }
+    }
+
     public static void Exercise5(){
         System.out.println("Creating 2 arrays, first one with 100 elements initialising this so the index reflects tha value," +
                             "second with 20 elements non initialised");
