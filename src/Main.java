@@ -15,6 +15,8 @@ public class Main {
                         Exercise2();
                     case 3:
                         Exercise3();
+                    case 4:
+                        Exercise4();
                     default:
                         System.out.println();
                 }
@@ -25,6 +27,30 @@ public class Main {
             }
         }
     }
+    public static void Exercise4(){
+        System.out.println("Write any number of items with price, the program will keep the most expensive item in memory, stop program by typing non digit in price.");
+        double priceMax = 0;
+        String nameMax = "";
+        var scan = new Scanner(System.in);
+        while (true){
+            System.out.println("Enter name for a item:");
+            if (!scan.hasNextLine()){
+                break;
+            }
+            String nameTemp = scan.next();
+            System.out.println("Price for " + nameTemp + "?");
+            if (!scan.hasNextDouble()){
+                break;
+            }
+            double priceTemp = scan.nextDouble();
+            if(priceMax < priceTemp){
+                nameMax = nameTemp;
+                priceMax = priceTemp;
+            }
+        }
+        System.out.println("Item " + nameMax + " is most expensive with a price of " + priceMax + ".");
+    }
+
     public static void Exercise3(){
         System.out.println("Creating array with 10 double elements.");
         var arr = new double[10];
