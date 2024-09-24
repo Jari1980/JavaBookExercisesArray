@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,6 +22,8 @@ public class Main {
                         Exercise5();
                     case 6:
                         Exercise6();
+                    case 7:
+                        Exercise7();
                     default:
                         System.out.println();
                 }
@@ -31,6 +34,41 @@ public class Main {
             }
         }
     }
+    public static void Exercise7(){
+        var arr = new int[1000];
+        var scan = new Scanner(System.in);
+        int counter = 0;
+        boolean zero = false;
+        while(true){
+            System.out.println("Write a integer, typing non integer end this loop");
+            try{
+                arr[counter] = scan.nextInt();
+                if(arr[counter] == 0){
+                    zero = true;
+                }
+                counter++;
+            }
+            catch (Exception e) {
+                System.out.println("Typed non integer");
+                break;
+            }
+            if(counter == 999){
+                System.out.println("You have entered 1000 numbers, that should be enough");
+                break;
+            }
+        }
+        System.out.println("Printing out all unique numbers entered:");
+        var noDupArr = IntStream.of(arr).distinct().toArray();
+        for (int element : noDupArr){
+            if (zero){
+                System.out.print(element + " ");
+            }
+            else if(element != 0){
+                System.out.print(element + " ");
+            }
+        }
+    }
+
     public static void Exercise6(){
         System.out.println("Creating a array with 20 double elements with values according to index");
         var arr1 = new double[20];
