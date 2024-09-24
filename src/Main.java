@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
@@ -24,6 +27,8 @@ public class Main {
                         Exercise6();
                     case 7:
                         Exercise7();
+                    case 8:
+                        Exercise8();
                     default:
                         System.out.println();
                 }
@@ -34,6 +39,34 @@ public class Main {
             }
         }
     }
+    public static void Exercise8() throws IOException {
+        System.out.println("In this exercise im reading numbers from the textfile exercise8.txt, calculating the average" +
+                " value and listing all number with their row number exceeding the average");
+        var instream = new Scanner(new File("src/Exercise8.txt"));
+        var arrayList = new ArrayList<Integer>();
+        while(true){
+            arrayList.add(instream.nextInt());
+            instream.hasNextLine();
+            if(!instream.hasNextInt()){
+                break;
+            }
+        }
+        int sum = 0;
+        for (int i = 0; i < arrayList.stream().count(); i++){
+            sum = arrayList.get(i) + sum;
+        }
+        double average = (double)sum / arrayList.stream().count();
+        System.out.println("The average of numbers in list is: " + average);
+        System.out.println("Numbers above in list are: ");
+        int index = 0;
+        for(int element : arrayList){
+            if ((double)arrayList.get(index) > average){
+                System.out.println("Row " + index + ", value " + arrayList.get(index));
+            }
+            index++;
+        }
+    }
+
     public static void Exercise7(){
         var arr = new int[1000];
         var scan = new Scanner(System.in);
