@@ -31,6 +31,8 @@ public class Main {
                         Exercise8();
                     case 9:
                         Exercise9();
+                    case 10:
+                        Exercise10();
                     default:
                         System.out.println();
                 }
@@ -41,9 +43,35 @@ public class Main {
             }
         }
     }
+    public static void Exercise10(){
+        System.out.println("Creating multiplication table with size chosen by user.");
+        var scan = new Scanner(System.in);
+        System.out.println("Enter a integer for size of multiplication table:");
+        try{
+            int size = scan.nextInt();
+            int[][] arr = new int[size][size];
+            for(int i = 0; i < arr.length; i++){
+                for(int j = 0; j < arr[0].length; j++){
+                    arr[i][j] = (i + 1) * (j + 1);
+                }
+            }
+            for(int i = 0; i < arr.length; i++){
+                for(int j = 0; j < arr[0].length; j++){
+                    System.out.format("%4d", arr[i][j]);
+                }
+                System.out.println();
+            }
+        }
+        catch(Exception e){
+            System.out.println("Not valid integer, program closing.");
+            System.exit(0);
+        }
+    }
+
+
     public static void Exercise9(){
         System.out.println("In this exercise Im creating a multidemensional array with 10 rows and columns, setting the " +
-                "values as a multiplicationtabe in the values are printed and the output is formatted properly.");
+                "values as a multiplication table in the values are printed and the output is formatted properly.");
         System.out.println();
         int[][] arr = new int[10][10];
         for(int i = 0; i < arr.length; i++){
