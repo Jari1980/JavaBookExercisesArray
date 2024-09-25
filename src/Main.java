@@ -29,6 +29,8 @@ public class Main {
                         Exercise7();
                     case 8:
                         Exercise8();
+                    case 9:
+                        Exercise9();
                     default:
                         System.out.println();
                 }
@@ -39,6 +41,24 @@ public class Main {
             }
         }
     }
+    public static void Exercise9(){
+        System.out.println("In this exercise Im creating a multidemensional array with 10 rows and columns, setting the " +
+                "values as a multiplicationtabe in the values are printed and the output is formatted properly.");
+        System.out.println();
+        int[][] arr = new int[10][10];
+        for(int i = 0; i < arr.length; i++){
+            for(int j = 0; j < arr[0].length; j++){
+                arr[i][j] = (i + 1) * (j + 1);
+            }
+        }
+        for(int i = 0; i < arr.length; i++){
+            for(int j = 0; j < arr[0].length; j++){
+                System.out.format("%4d", arr[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
     public static void Exercise8() throws IOException {
         System.out.println("In this exercise im reading numbers from the textfile exercise8.txt, calculating the average" +
                 " value and listing all number with their row number exceeding the average");
