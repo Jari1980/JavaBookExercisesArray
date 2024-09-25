@@ -33,6 +33,8 @@ public class Main {
                         Exercise9();
                     case 10:
                         Exercise10();
+                    case 11:
+                        Exercise11();
                     default:
                         System.out.println();
                 }
@@ -43,6 +45,51 @@ public class Main {
             }
         }
     }
+    public static void Exercise11(){
+        System.out.println("Creating a method \"Symmetric\" which will return true if given two dimensionall array, of" +
+                " type integer, is symmetric, else false.");
+        System.out.println("Creating 4x4 matrix");
+        int[][] array = new int[4][4];
+        var scan = new Scanner(System.in);
+        for(int i = 0; i < 4; i++){
+            System.out.println("Enter 4 integers separated with \"space\":");
+            String nums = scan.nextLine();
+            for(int j = 0; j < 4; j++){
+                String[] arrString = nums.split(" ");  //Would want to convert string to int here, but going this way
+                array[i][j] = Integer.parseInt(arrString[j]);
+            }
+        }
+        System.out.println("Array given by user:");
+        System.out.println();
+        for(int i = 0; i < array.length; i++){
+            for(int j = 0; j < array[0].length; j++){
+                System.out.format("%4d", array[i][j]);
+            }
+            System.out.println();
+        }
+        System.out.println("Testing if this is symmetrical:");
+        boolean result = Symmetric(array);
+        System.out.println("Result: " + result);
+    }
+    public static boolean Symmetric(int[][] arr){
+        boolean res = true;
+        if(arr.length == arr[0].length){
+                for(int i = 0; i < arr.length; i++){
+                    for(int j = 0; j < arr[0].length; j++){
+                        if(arr[i][j] != arr[j][i]){
+                            res = false;
+                        }
+                    }
+                }
+        }
+        else{
+            res = false;
+        }
+
+        return res;
+    }
+
+
     public static void Exercise10(){
         System.out.println("Creating multiplication table with size chosen by user.");
         var scan = new Scanner(System.in);
